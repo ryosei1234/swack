@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 16px;
+}
+
+.container {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+}
+
+.left {
+	background-color: #3e313c;
+	color: white;
+	width: 150px;
+}
+
+.channel-top {
+
+}
+
+.contents {
+	background-color: white;
+	flex: 1;
+	color: black;
+}
+
+.roomlist-name{
+	text-decoration: none;
+	color: white;
+	font-size: 20px
+}
