@@ -9,14 +9,14 @@ import java.sql.ResultSet;
 
 public class UserDAO {
 
-	public boolean canLogin(String username, String password) {
+	public boolean canLogin(String mailad, String password) {
 
-		String sql = "SELECT * FROM users WHERE username = ? AND password= ?";
+		String sql = "SELECT * FROM users WHERE mailad = ? AND password= ?";
 		try {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
-				pst.setString(1, username);
+				pst.setString(1, mailad);
 				pst.setString(2, password);
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
