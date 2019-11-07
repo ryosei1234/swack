@@ -43,7 +43,6 @@ public class UserDAO {
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
 					String username = rs.getString("username");
-					System.out.println(username);
 					return username;
 				}
 			}
