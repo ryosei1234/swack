@@ -26,7 +26,7 @@ public class CreateAccountServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		RegistDAO registdao = new RegistDAO();
-		if (registdao.canRegist(username, mailad, password)) {//登録成功
+		if (registdao.canRegist(username, password, mailad)) {//登録成功
 			System.out.println("登録成功");
 		} else {
 			System.out.println("登録失敗");
