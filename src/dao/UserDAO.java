@@ -39,10 +39,11 @@ public class UserDAO {
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, mailad);
 				ResultSet rs = pst.executeQuery();
-				//while (rs.next()) {
-				String username = rs.getString("username");
-				return username;
-				//}
+				if (rs.next()) {
+					String username = rs.getString("username");
+					System.out.println(username);
+					return username;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
