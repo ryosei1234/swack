@@ -5,7 +5,6 @@ import static parameter.DAOParameters.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class RegistDAO {
 
@@ -20,10 +19,8 @@ public class RegistDAO {
 				pst.setString(1, username);
 				pst.setString(2, password);
 				pst.setString(3, mailad);
-				ResultSet rs = pst.executeQuery();
-				if (rs.next()) {
-					return true;
-				}
+				int cnt = pst.executeUpdate();
+				return true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

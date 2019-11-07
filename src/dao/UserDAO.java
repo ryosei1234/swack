@@ -18,8 +18,12 @@ public class UserDAO {
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, mailad);
 				pst.setString(2, password);
-				int cnt = pst.executeUpdate();
-				return true;
+				ResultSet rs = pst.executeQuery();
+
+				if (rs.next()) {
+					return true;
+				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
