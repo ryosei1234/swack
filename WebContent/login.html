@@ -2,16 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SwackLite Login</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Swack Login</title>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+
 </head>
 <body>
-<h1>SwackLite Login</h1>
-
-<form action="LoginServlet" method="post">
-<input type="text" name="mailad" placeholder="メールアドレス"><br>
-<input type="password" name="password" placeholder="パスワード"><br>
-<input type="submit" value="ログイン" class="submit-color"><br>
-</form>
+<div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Swackにログイン</h3>
+                メールアドレスとパスワードを入力してください。
+                <form action="LoginServlet" method="post">
+                    <input type="text" name="mailad" placeholder="メールアドレス">
+                    <input type="password" name="password" placeholder="パスワード">
+                    <input type="submit" value="ログイン">
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Swackワークスペースに参加する</h3>
+                氏名、メールアドレス、パスワードを入力してください。
+                <form action="#" method="post">
+                    <input type="text" name="氏名" placeholder="氏名">
+                    <input type="text" name="mailad" placeholder="メールアドレス">
+                    <input type="password" name="password" placeholder="パスワード">
+                    <input type="submit" value="参加する">
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
