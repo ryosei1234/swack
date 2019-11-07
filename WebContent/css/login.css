@@ -1,10 +1,21 @@
 @charset "UTF-8";
+
 .col-md-6{
+	text-align: center;
     padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0
+		rgba(0, 0, 0, 0.19);
 
 }
 .container{
     margin-top: 5px;
     margin-bottom: 5%;
-    padding: 6%;
+    padding: 5%;
+}
+.div-control{
+	padding: 3%;
+}
+.input-control{
+	width: 450px;
+	height: 30px;
 }

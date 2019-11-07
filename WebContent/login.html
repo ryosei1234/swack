@@ -16,19 +16,37 @@
                 <h3>Swackにログイン</h3>
                 メールアドレスとパスワードを入力してください。
                 <form action="LoginServlet" method="post">
-                    <input type="text" name="mailad" placeholder="メールアドレス">
-                    <input type="password" name="password" placeholder="パスワード">
-                    <input type="submit" value="ログイン">
+                <div class="div-control">
+                    <input type="email" name="mailad" placeholder="メールアドレス" class="input-control">
+                </div>
+				<div class="div-control">
+                    <input type="password" name="password" placeholder="パスワード" class="input-control">
+                 </div>
+                 <div class="div-control">
+                    <input type="submit" value="ログイン" class="input-control">
+                 </div>
+                 <div class="div-control">
+                    <input type="checkbox" class="input-control">
+                    ログイン情報を記憶する。
+                  </div>
                 </form>
             </div>
             <div class="col-md-6">
-                <h3>Swackワークスペースに参加する</h3>
+                <h3>新規会員登録</h3>
                 氏名、メールアドレス、パスワードを入力してください。
-                <form action="#" method="post">
-                    <input type="text" name="氏名" placeholder="氏名">
-                    <input type="text" name="mailad" placeholder="メールアドレス">
-                    <input type="password" name="password" placeholder="パスワード">
-                    <input type="submit" value="参加する">
+                <form action="CreateAccountServlet" method="post">
+                <div class="div-control">
+                    <input type="text" name="username" placeholder="氏名" class="input-control">
+                 </div>
+                <div class="div-control">
+                   <input type="email" name="mailad" placeholder="メールアドレス" class="input-control">
+                 </div>
+                 <div class="div-control">
+                    <input type="password" name="password" placeholder="パスワード" class="input-control">
+                 </div>
+                <div class="div-control">
+                    <input type="submit" value="参加する" class="input-control">
+                  </div>
                 </form>
             </div>
         </div>
