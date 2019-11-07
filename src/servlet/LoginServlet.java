@@ -22,16 +22,16 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
+		String mailad = request.getParameter("mailad");
 		String password = request.getParameter("password");
 
 		HttpSession session = request.getSession();
 
 		//ログインできるかチェック
 		UserDAO userDAO = new UserDAO();
-		if (userDAO.canLogin(username, password)) {
+		if (userDAO.canLogin(mailad, password)) {
 			System.out.println("ログイン成功");
-			session.setAttribute("username", username);
+			session.setAttribute("mailad", mailad);
 			//初期画面表示
 			response.sendRedirect("ChatSarvlet");
 		} else {

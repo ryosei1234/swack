@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import bean.ChatlogBean;
 import dao.ChatlogDAO;
 import dao.RoomDAO;
+import dao.UserDAO;
 import security.SecurityUtil;
 
 /**
@@ -31,28 +32,28 @@ public class ChatSarvlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		//画面から取得
-		//		String message = request.getParameter("message");
 		String roomname = request.getParameter("roomname");
 
 		String username = "";
-		if (session.getAttribute("username") == null) {
+		if (session.getAttribute("mailad") == null) {
 			//不正アクセス
 			System.out.println("不正なアクセス");
 			request.getRequestDispatcher("login.html").forward(request, response);
 			return;
 		} else {
-			//正常
-			username = (String) session.getAttribute("username");
+			//正常 ユーザー名取得
+			UserDAO userDAO = new UserDAO();
+			username = userDAO.conversion((String) session.getAttribute("mailad"));
 		}
 
 		if (roomname == null)
 			roomname = "everyone";
 
 		RoomDAO roomDAO = new RoomDAO();
-		ArrayList<String> roomlist = roomDAO.getRoomList(username);
+		ArrayList<String> roomlist = roomDAO.getRoomList(username);//所属ルーム取得
 
 		ChatlogDAO chatlogDAO = new ChatlogDAO();
-		ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);
+		ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);//チャット取得
 
 		//JSPに値を渡す
 		request.setAttribute("roomlist", roomlist);
