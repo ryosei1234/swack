@@ -29,4 +29,26 @@ public class UserDAO {
 
 		return false;
 	}
+
+	public String conversion(String mailad) {
+		String sql = "SELECT username FROM users WHERE mailad = ?";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, mailad);
+				ResultSet rs = pst.executeQuery();
+				while (rs.next()) {
+					return rs.getString("username");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
+
+	}
+
 }
