@@ -43,7 +43,8 @@ public class ChatSarvlet extends HttpServlet {
 		} else {
 			//正常 ユーザー名取得
 			UserDAO userDAO = new UserDAO();
-			username = userDAO.conversion((String) session.getAttribute("mailad"));
+			String mailad = (String) session.getAttribute("mailad");
+			username = userDAO.conversion(mailad);
 		}
 
 		if (roomname == null)
