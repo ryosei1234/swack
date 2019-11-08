@@ -20,6 +20,11 @@ public class RegistDAO {
 				pst.setString(2, password);
 				pst.setString(3, mailad);
 				int cnt = pst.executeUpdate();
+
+				//Statement statement=conn.createStatement();
+				//sql="INSERT INTO room VALUES('everyone' , username)";
+				//statement.executeUpdate(sql);
+
 				return true;
 			}
 		} catch (Exception e) {

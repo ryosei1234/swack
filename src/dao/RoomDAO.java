@@ -30,4 +30,20 @@ public class RoomDAO {
 
 	}
 
+	public void saveRoom(String roomname, String username) {
+		String sql = "INSERT INTO room VALUES(?,?)";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, roomname);
+				pst.setString(2, username);
+				int cnt = pst.executeUpdate();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
