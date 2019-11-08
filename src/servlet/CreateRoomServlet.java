@@ -21,7 +21,7 @@ public class CreateRoomServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String roomname = request.getParameter("roomname");
+		String roomname = request.getParameter("roomadd");
 		String username = request.getParameter("username");
 
 		RoomDAO roomdao = new RoomDAO();
