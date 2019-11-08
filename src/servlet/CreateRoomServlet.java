@@ -25,7 +25,7 @@ public class CreateRoomServlet extends HttpServlet {
 		String username = request.getParameter("username");
 
 		RoomDAO roomdao = new RoomDAO();
-		roomdao.saveRoom(username, roomname);
+		roomdao.saveRoom(roomname, username);
 		response.sendRedirect("ChatSarvlet");
 	}
 
