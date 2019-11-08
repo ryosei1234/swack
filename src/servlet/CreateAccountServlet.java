@@ -32,10 +32,10 @@ public class CreateAccountServlet extends HttpServlet {
 			success = true;
 		} else {
 			System.out.println("登録失敗");
-			success = true;
+			success = false;
 		}
 		request.setAttribute("success", success);
-		request.getRequestDispatcher("access.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/access.jsp").forward(request, response);
 	}
 
 }
