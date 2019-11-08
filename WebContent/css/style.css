@@ -9,16 +9,15 @@ body {
 	font-size: 16px;
 }
 
-.container {
+/*.container {
 	display: flex;
 	width: 100vw;
 	height: 100vh;
-}
+}*/
 
 .left {
-	background-color: #3e313c;
-	color: white;
-	width: 150px;
+	background-color: #330033;
+	color: green;
 }
 
 .channel-top {
@@ -29,10 +28,11 @@ body {
 	background-color: white;
 	flex: 1;
 	color: black;
+	margin-bottom: 20%;
 }
 
 .roomlist-name{
 	text-decoration: none;
-	color: white;
+	color: green;
 	font-size: 20px
 }
