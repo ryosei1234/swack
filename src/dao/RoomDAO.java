@@ -56,13 +56,13 @@ public class RoomDAO {
 				pst.setString(1, roomname);
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
-					return false;
+					return false; // DBに登録されていたらfalse
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return true;
+		return true; // DBに登録されていなかったらtrue
 
 	}
 

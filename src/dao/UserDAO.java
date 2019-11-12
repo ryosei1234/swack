@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class UserDAO {
 
@@ -51,6 +52,47 @@ public class UserDAO {
 		}
 
 		return null;
+
+	}
+
+	public boolean checkUser(String username) {
+		String sql = "SELECT username FROM users WHERE username = ?";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, username);
+				ResultSet rs = pst.executeQuery();
+				if (rs.next()) {
+					return false; // DBに登録されていたらfalse
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return true; // DBに登録されてなかったらtrue
+
+	}
+
+	public ArrayList<String> getUserList() {
+		ArrayList<String> userlist = new ArrayList<String>();
+		String sql = "SELECT USERNAME FROM USERS";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+
+				ResultSet rs = pst.executeQuery();
+				while (rs.next()) {
+					userlist.add(rs.getString("username"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userlist;
 
 	}
 
