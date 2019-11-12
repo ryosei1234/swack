@@ -17,7 +17,14 @@ body {
 .left {
 	background-color: #330033;
 	color: green;
-    margin-bottom: 50%;
+    margin-bottom: 80%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto
 }
 
 .channel-top {
@@ -35,4 +42,13 @@ body {
 	text-decoration: none;
 	color: green;
 	font-size: 20px
+}
+.sidber{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto
 }
