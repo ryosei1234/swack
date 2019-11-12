@@ -17,13 +17,12 @@
 
 	<jsp:useBean id="username" class="java.lang.String" scope="request" />
 	<jsp:useBean id="roomname" class="java.lang.String" scope="request" />
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 left">
-				<form action="LogoutServlet" method="post">
-					<input type="submit" value="ログアウト">
-				</form>
+	<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 left">
+                <form action="LogoutServlet" method="post">
+                    <input type="submit" value="ログアウト">
+                </form>
 				ユーザ名：<%=username%><br> ルーム名：<%=roomname%>
 				<br> <br>
 				<h3 class="channel-top">チャンネル</h3>
@@ -42,13 +41,13 @@
 					}
 				%>
 			</div>
-			<div class="col-md-9 right">
-				<div class="send-form">
+			<div class="col-md-10 right">
+                <div class="col-md-12">
+                    <div class="send-form">
 					<form action="ChatSarvlet" method="post">
 						<input type="hidden" name="roomname" value=<%=roomname%>>
 						<input type="hidden" name="username" value=<%=username%>>
-						<input type="text" name="message"> <input type="submit"
-							value="送信">
+						<input type="text" name="message"> <input type="submit" value="送信">
 					</form>
 				</div>
 				<hr>
@@ -64,6 +63,7 @@
 				<%
 					}
 				%>
+				</div>
 			</div>
 		</div>
 	</div>

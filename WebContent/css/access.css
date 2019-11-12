@@ -1,1 +1,45 @@
 @charset "UTF-8";
+@charset "UTF-8";
+
+body{
+ background:linear-gradient(-45deg,
+     rgba(0, 153, 255, 0),
+     rgba(0, 153, 255, 0.8));
+}
+.btn-left{
+     background:linear-gradient(-45deg,
+     rgba(0, 153, 255, 0.5),
+     rgba(0, 153, 255, 0.5));
+    color: white;
+}
+
+.col-md-6{
+	text-align: center;
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.container{
+    margin-top: 5px;
+    margin-bottom: 4%;
+    padding: 5%;
+}
+.right{
+    color: white;
+}
+h5{
+    padding: 2%;
+    color: red;
+}
+.div-control-left{
+    padding: 5%;
+}
+
+.div-control-right{
+	padding: 3%;
+}
+.input-control{
+	width: 400px;
+	height: 35px;
+}
