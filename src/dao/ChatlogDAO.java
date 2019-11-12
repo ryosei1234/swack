@@ -34,33 +34,6 @@ public class ChatlogDAO {
 
 		return chatloglist;
 	}
-	//
-	//	public ArrayList<ChatlogBean> getChatloglist(String roomname, HttpSession session) {
-	//		//チャットログを取得する
-	//		ArrayList<ChatlogBean> chatdata = (ArrayList<ChatlogBean>) session.getAttribute("chatdata");
-	//
-	//		if (chatdata == null) {
-	//			chatdata = new ArrayList<ChatlogBean>();
-	//			chatdata.add(new ChatlogBean(1, "everyone", "hoge", "hello"));
-	//			chatdata.add(new ChatlogBean(2, "everyone", "ああ", "仮データ"));
-	//			chatdata.add(new ChatlogBean(3, "random", "hoge", "こんにちわ"));
-	//			chatdata.add(new ChatlogBean(4, "random", "ああ", "こんにちは"));
-	//			chatdata.add(new ChatlogBean(5, "everyone", "さとう", "こんにちは！"));
-	//			chatdata.add(new ChatlogBean(6, "everyone", "さとう", "こんにちは！"));
-	//			chatdata.add(new ChatlogBean(7, "everyone", "さとう", "こんにちは！"));
-	//			chatdata.add(new ChatlogBean(8, "news", "ああ", "ニュースnews"));
-	//		}
-	//		session.setAttribute("chatdata", chatdata);
-	//
-	//		ArrayList<ChatlogBean> chatloglist = new ArrayList<ChatlogBean>();
-	//
-	//		for (ChatlogBean bean : chatdata) {
-	//			if (bean.getRoomname().equals(roomname)) {
-	//				chatloglist.add(bean);
-	//			}
-	//		}
-	//		return chatloglist;
-	//	}
 
 	/* DB対応版 */
 	public void saveChatlog(String roomname, String username, String message) {
@@ -79,11 +52,5 @@ public class ChatlogDAO {
 			e.printStackTrace();
 		}
 	}
-	//	public void saveChatlog(HttpSession session, String roomname, String username, String message) {
-	//		//チャットログを取得する
-	//		ArrayList<ChatlogBean> chatdata = (ArrayList<ChatlogBean>) session.getAttribute("chatdata");
-	//		//データを追加する
-	//		chatdata.add(new ChatlogBean(chatdata.size() + 1, roomname, username, message));
-	//		session.setAttribute("chatdata", chatdata);
-	//	}
+
 }
