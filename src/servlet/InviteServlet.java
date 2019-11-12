@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.RoomDAO;
 import dao.UserDAO;
 
 /**
@@ -32,7 +33,9 @@ public class InviteServlet extends HttpServlet {
 			request.setAttribute("userlist", userlist);
 			request.getRequestDispatcher("WEB-INF/Invite.jsp").forward(request, response);
 		} else {
-
+			RoomDAO roomDAO = new RoomDAO();
+			roomDAO.saveRoom(roomname, username);
+			response.sendRedirect("ChatSarvlet");
 		}
 
 	}
