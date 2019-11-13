@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RegistDAO;
+import dao.UserDAO;
 
 /**
  * Servlet implementation class CreateAccountServlet
@@ -25,9 +25,9 @@ public class CreateAccountServlet extends HttpServlet {
 		String mailad = request.getParameter("mailad");
 		String password = request.getParameter("password");
 
-		RegistDAO registdao = new RegistDAO();
+		UserDAO userdao = new UserDAO();
 		boolean success;
-		if (registdao.canRegist(username, password, mailad)) {//登録成功
+		if (userdao.canRegist(username, password, mailad)) {//登録成功
 			System.out.println("登録成功");
 			success = true;
 		} else {

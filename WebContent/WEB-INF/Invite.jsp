@@ -23,7 +23,7 @@
 					</h2>
 				<form action="InviteServlet" method="post">
 					<div class="div-control">
-						<select class="input-control" name="ユーザー一覧">
+						<select class="input-control" name="username">
 							<%
 								ArrayList<String> userlist = (ArrayList<String>) request.getAttribute("userlist");
 								for (String list : userlist) {
@@ -37,6 +37,7 @@
 						</select>
 					</div>
 					<div class="div-control">
+					<input type ="hidden" name="roomname" value="<%=roomname%>">
 						<input type="submit" value="招待" class="btn-left">
 					</div>
 				</form>
