@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +12,12 @@
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/login.css">
-
 </head>
 <body>
+
+	if( != null){
+
+	 }else{
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 left">
@@ -33,7 +35,9 @@
 					<div class="div-control-left">
 						<input type="submit" value="ログイン" class="input-control btn-left">
 					</div>
-
+					<div class="div-control-left">
+						<input type="checkbox" name="checkbox" value="true" >ログイン情報を記憶する
+					</div>
 				</form>
 			</div>
 			<div class="col-md-6">
@@ -59,5 +63,6 @@
 			</div>
 		</div>
 	</div>
+	}
 </body>
 </html>

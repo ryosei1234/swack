@@ -30,7 +30,7 @@
 					<input type="submit" value="ログアウト">
 				</form>
 				<form action="InviteServlet" method="post">
-					<input type="hidden" name="roomname"  value="<%=roomname%>">
+					<input type="hidden" name="roomname" value="<%=roomname%>">
 					<input type="submit" value="ルーム招待">
 				</form>
 
@@ -55,14 +55,8 @@
 			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="send-form">
-							<form action="ChatSarvlet" method="post">
-								<input type="hidden" name="roomname" value=<%=roomname%>>
-								<input type="hidden" name="username" value=<%=username%>>
-								<input type="text" name="message"> <input type="submit"
-									value="送信">
-							</form>
-						</div>
+
+
 						<hr>
 						<h2>チャット一覧</h2>
 						<%
@@ -76,11 +70,21 @@
 						<%
 							}
 						%>
+
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- container -->
+	<footer>
+		<form action="ChatSarvlet" method="post">
+			<input type="hidden" name="roomname" value=<%=roomname%>> <input
+				type="hidden" name="username" value=<%=username%>> <input
+				type="text" name="message"> <input type="submit" value="送信">
+		</form>
+	</footer>
+
 </body>
 </html>
