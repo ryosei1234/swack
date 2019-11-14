@@ -29,7 +29,7 @@ public class LoginDAO {
 
 	}
 
-	public boolean sesSerch(String sessionid) {
+	public Calculation sesSerch(String sessionid) {
 
 		String sql = "SELECT mailad , password FROM auth_login WHERE sessionid = ?";
 
@@ -40,13 +40,21 @@ public class LoginDAO {
 				pst.setString(1, sessionid);
 				ResultSet rs = pst.executeQuery();
 				while (rs.next()) {
-					return true; // DBに登録されていたらtrue
+					String mailad = rs.getString("mailad");
+					String password = rs.getString("password");
+
+					Calculation calc = new Calculation();
+					Calculation value = calc.calcMethod(mailad, password);
+
+					return value;
+
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return false; // DBに登録されてなかったらfalse
+
+		return null;
 
 	}
 
