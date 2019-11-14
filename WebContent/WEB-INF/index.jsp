@@ -55,9 +55,6 @@
 			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
 					<div class="col-md-12">
-
-
-						<hr>
 						<h2>チャット一覧</h2>
 						<%
 							ArrayList<ChatlogBean> chatloglist = (ArrayList<ChatlogBean>) request.getAttribute("chatloglist");
@@ -70,8 +67,6 @@
 						<%
 							}
 						%>
-
-
 					</div>
 				</div>
 			</div>

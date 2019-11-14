@@ -13,14 +13,13 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
+			<div class="col-md-6 col-md-offset-3">
 				<%
 					if ((boolean) request.getAttribute("success")) {
 				%>
 				<h3>会員登録が完了しました。</h3>
 				<form action="login.jsp">
-					<input type="submit" value="完了" class="input-control btn-right">
+					<input type="submit" value="完了" class="input-control btn-true">
 				</form>
 				<%
 					} else {
@@ -43,7 +42,7 @@
 							class="input-control">
 					</div>
 					<div class="div-control-right">
-						<input type="submit" value="登録する" class="input-control btn-right">
+						<input type="submit" value="登録する" class="input-control btn-false">
 					</div>
 				</form>
 				<%
