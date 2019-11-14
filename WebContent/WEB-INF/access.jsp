@@ -19,7 +19,7 @@
 					if ((boolean) request.getAttribute("success")) {
 				%>
 				<h3>会員登録が完了しました。</h3>
-				<form action="login.html">
+				<form action="login.jsp">
 					<input type="submit" value="完了" class="input-control btn-right">
 				</form>
 				<%

@@ -48,12 +48,11 @@
 				%>
 				<a class="roomlist-name" href="ChatSarvlet?roomname=<%=list%>">#
 					<%=list%></a><br>
-				<br>
 				<%
 					}
 				%>
 			</div>
-			<div class="col-md-10  right">
+			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="send-form">
