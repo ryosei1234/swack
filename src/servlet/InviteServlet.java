@@ -32,12 +32,12 @@ public class InviteServlet extends HttpServlet {
 			request.setAttribute("roomname", roomname);
 			request.setAttribute("userlist", userlist);
 			request.getRequestDispatcher("WEB-INF/Invite.jsp").forward(request, response);
+			return;
 		} else {
 			RoomDAO roomDAO = new RoomDAO();
 			roomDAO.saveRoom(roomname, username);
 			response.sendRedirect("ChatSarvlet");
 		}
-
 	}
 
 }
