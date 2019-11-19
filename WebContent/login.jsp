@@ -1,7 +1,8 @@
 
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList" import="dao.LoginDAO"
+	import="dao.Calculation"%>
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +16,18 @@
 </head>
 <body>
 
-	if( != null){
-
-	 }else{
+	<%
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			String sessionid = "";
+			for (Cookie cook : cookies) {
+				if (cook.getName().equals("sessionid")) {
+					System.out.println(cook);
+					request.getRequestDispatcher("LoginServlet").forward(request, response);
+				}
+			}
+		}
+	%>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 left">
@@ -36,7 +46,7 @@
 						<input type="submit" value="ログイン" class="input-control btn-left">
 					</div>
 					<div class="div-control-left">
-						<input type="checkbox" name="checkbox" value="true" >ログイン情報を記憶する
+						<input type="checkbox" name="checkbox" value="true">ログイン情報を記憶する
 					</div>
 				</form>
 			</div>

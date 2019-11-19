@@ -2,8 +2,8 @@ package dao;
 
 public class Calculation {
 
-	String mailad;
-	String password;
+	public static String mailad;
+	public static String password;
 
 	public Calculation calcMethod(String mailad, String password) {
 		Calculation calc = new Calculation();
