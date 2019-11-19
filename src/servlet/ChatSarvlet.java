@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import bean.ChatlogBean;
 import dao.ChatlogDAO;
+import dao.DChatlogDAO;
 import dao.RoomDAO;
 import dao.UserDAO;
 import security.SecurityUtil;
@@ -38,7 +39,7 @@ public class ChatSarvlet extends HttpServlet {
 		if (session.getAttribute("mailad") == null) {
 			//不正アクセス
 			System.out.println("不正なアクセス");
-			request.getRequestDispatcher("login.html").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		} else {
 			//正常 ユーザー名取得
@@ -47,18 +48,27 @@ public class ChatSarvlet extends HttpServlet {
 			username = userDAO.conversion(mailad);
 		}
 
+		//TODO 初期部屋
 		if (roomname == null)
 			roomname = "everyone";
 
 		RoomDAO roomDAO = new RoomDAO();
 		ArrayList<String> roomlist = roomDAO.getRoomList(username);//所属ルーム取得
+		ArrayList<String> droomlist = roomDAO.getRoomList(username);
 
 		ChatlogDAO chatlogDAO = new ChatlogDAO();
-		ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);//チャット取得
+		DChatlogDAO dchatlogDAO = new DChatlogDAO();
+		if (/* グループチャット */true) {
+			ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);//チャット取得
+			request.setAttribute("chatloglist", chatloglist);
+		} else {
+			ArrayList<ChatlogBean> chatloglist = dchatlogDAO.getDChatloglist(roomname);//チャット取得
+			request.setAttribute("chatloglist", chatloglist);
+		}
 
 		//JSPに値を渡す
 		request.setAttribute("roomlist", roomlist);
-		request.setAttribute("chatloglist", chatloglist);
+		request.setAttribute("droomlist", droomlist);
 		request.setAttribute("username", username);
 		request.setAttribute("roomname", roomname);
 
