@@ -6,50 +6,68 @@
 }
 
 body {
+	font-size: 14px;
+	background-color: #330033;
+}
+.row{
+    margin-bottom: 4%;
+}
+.left {
+	color: #6074ff;
+	margin-bottom: 50%;
+	position: fixed;
+}
+
+.header {
+	background-color: white;
+	color: black;
+	width: 1150px;
+	position: absolute;
+}
+
+.right {
+	overflow-y: scroll;
+	overflow: scroll;
+	background-color: white;
+	color: black;
+	width: 1150px;
+	height: 490px;
 	font-size: 16px;
 }
 
-.container-fluid {
-    margin-top: 5px;
-    margin-bottom: 4%;
-}
-
-.left {
-	background-color: #330033;
-	color: green;
-    margin-bottom: 50%;
-    position: fixed;
-
-}
-
-.channel-top {
-}
-.right {
-	background-color: white;
-	color: black;
-}
-
-.roomlist-name{
+.roomlist-name {
 	text-decoration: none;
-	color: green;
+	color: #6074ff;
 	font-size: 20px
 }
-.sidber{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto
+
+input.message {
+	width: 900px;
+	height: 40px;
+	border-radius: 3px;
 }
 
- footer{
-    width: 70%;
-    color: #000000;
-    text-align: center;
-    padding: 30px 0;
+footer {
+	width: 84%;
+	height: 80px;
+	background-color: white;
+	color: #000000;
+	text-align: center;
+	margin-left: 228px;
+	padding: 30px 0;
+	position: absolute;
+	bottom: 0%;
+}
 
-    position: absolute;
-    bottom: 0;
+.btn-right-radius {
+  position: relative;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #6074ff;
+  background: #ECECEC;
+  transition: .4s;
+}
+
+.btn-right-radius:hover {
+  background: #636363;
 }

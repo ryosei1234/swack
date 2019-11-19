@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import bean.ChatlogBean;
 import dao.ChatlogDAO;
 import dao.DChatlogDAO;
+import dao.DRoomDAO;
 import dao.RoomDAO;
 import dao.UserDAO;
 import security.SecurityUtil;
@@ -34,6 +35,10 @@ public class ChatSarvlet extends HttpServlet {
 
 		//画面から取得
 		String roomname = request.getParameter("roomname");
+		String direct = request.getParameter("direct");
+		if (direct == null) {
+			direct = "false";
+		}
 
 		String username = "";
 		if (session.getAttribute("mailad") == null) {
@@ -53,16 +58,17 @@ public class ChatSarvlet extends HttpServlet {
 			roomname = "everyone";
 
 		RoomDAO roomDAO = new RoomDAO();
+		DRoomDAO droomDAO = new DRoomDAO();
 		ArrayList<String> roomlist = roomDAO.getRoomList(username);//所属ルーム取得
-		ArrayList<String> droomlist = roomDAO.getRoomList(username);
+		ArrayList<String> droomlist = droomDAO.getDRoomList(username);
 
 		ChatlogDAO chatlogDAO = new ChatlogDAO();
 		DChatlogDAO dchatlogDAO = new DChatlogDAO();
-		if (/* グループチャット */true) {
+		if (direct.equals("false")) {
 			ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);//チャット取得
 			request.setAttribute("chatloglist", chatloglist);
 		} else {
-			ArrayList<ChatlogBean> chatloglist = dchatlogDAO.getDChatloglist(roomname);//チャット取得
+			ArrayList<ChatlogBean> chatloglist = dchatlogDAO.getDChatloglist(roomname);//ダイレクトチャット取得
 			request.setAttribute("chatloglist", chatloglist);
 		}
 

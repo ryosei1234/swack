@@ -22,7 +22,6 @@
 			String sessionid = "";
 			for (Cookie cook : cookies) {
 				if (cook.getName().equals("sessionid")) {
-					System.out.println(cook);
 					request.getRequestDispatcher("LoginServlet").forward(request, response);
 				}
 			}
