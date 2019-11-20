@@ -32,14 +32,15 @@
 		<!-- header -->
 		<div class="row">
 			<div class="col-md-2 left">
-				<h4>
-					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
 				<form action="LogoutServlet" method="post">
 					<input type="submit" value="ログアウト" class="btn-right-radius">
 				</form>
+				<h4>
+					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
+
 				<br>
 
-				<h4>ルーム</h4>
+				<h4 class="channel-top">ルーム</h4>
 				<form action="InviteServlet" method="post">
 					<input type="hidden" name="roomname" value="<%=roomname%>">
 					<input type="submit" value="ルーム招待" class="btn-right-radius">
@@ -60,7 +61,7 @@
 						type="submit" value="追加">
 				</form>
 				<br>
-				<h4>ダイレクトメッセージ</h4>
+				<h4 class="channel-top">ダイレクトメッセージ</h4>
 				<form action="CreateDRoomServlet" method="post">
 					<input type="hidden" name="username1" value=<%=username%>>
 					<input type="submit" value="ユーザー選択" class="btn-right-radius">
@@ -70,7 +71,7 @@
 					for (String list : droomlist) {
 				%>
 				<a class="roomlist-name"
-					href="ChatSarvlet?roomname=<%=list%>,direct="true"> <%=list%></a><br>
+					href="ChatSarvlet?roomname=<%=list%> direct="true"> <%=list%></a><br>
 				<%
 					}
 				%>
@@ -98,10 +99,10 @@
 	<!-- container -->
 	<footer>
 		<form action="ChatSarvlet" method="post">
-			<input type="hidden" name="roomname" value=<%=roomname%>> <input
-				type="hidden" name="username" value=<%=username%>> <input
-				type="text" name="message" placeholder="Hello World" class="message">
-			<input type="submit" value="送信">
+			<input type="hidden" name="roomname" value=<%=roomname%>>
+			<input type="hidden" name="username" value=<%=username%>>
+			<input type="text" name="message" placeholder="Hello World" class="message">
+			<input type="submit" value="送信" class="btn-right-radius">
 		</form>
 	</footer>
 </body>
