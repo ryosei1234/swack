@@ -64,6 +64,7 @@ public class ChatSarvlet extends HttpServlet {
 
 		ChatlogDAO chatlogDAO = new ChatlogDAO();
 		DChatlogDAO dchatlogDAO = new DChatlogDAO();
+		System.out.println("chatservletのgetのほうのdirectは" + direct);
 		if (direct.equals("false")) {
 			ArrayList<ChatlogBean> chatloglist = chatlogDAO.getChatloglist(roomname);//チャット取得
 			request.setAttribute("chatloglist", chatloglist);
@@ -77,6 +78,7 @@ public class ChatSarvlet extends HttpServlet {
 		request.setAttribute("droomlist", droomlist);
 		request.setAttribute("username", username);
 		request.setAttribute("roomname", roomname);
+		request.setAttribute("direct", direct); //ここ
 
 		//JSP呼び出し
 		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
@@ -90,15 +92,24 @@ public class ChatSarvlet extends HttpServlet {
 		String message = SecurityUtil.getESCEncodingString(str);
 		String roomname = request.getParameter("roomname");
 		String username = request.getParameter("username");
+		String direct = request.getParameter("direct");
 
+		System.out.println("postのほうのchatservletのdirectは" + direct);
 		HttpSession session = request.getSession();
 
 		if (!message.equals("")) {
-			ChatlogDAO chatlogDAO = new ChatlogDAO();
-			chatlogDAO.saveChatlog(roomname, username, message);
+			if (direct.equals("false")) {
+				ChatlogDAO chatlogDAO = new ChatlogDAO();
+				chatlogDAO.saveChatlog(roomname, username, message);
+			} else {
+				//ここから
+				DChatlogDAO dchatlogDAO = new DChatlogDAO();
+				dchatlogDAO.saveDChatlog(roomname, username, message);
+				//ここまで
+			}
 		}
 
 		//GET処理にリダイレクトs
-		response.sendRedirect("ChatSarvlet?roomname=" + roomname);
+		response.sendRedirect("ChatSarvlet?roomname=" + roomname + "&direct=" + direct);
 	}
 }
