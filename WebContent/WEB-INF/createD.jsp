@@ -17,8 +17,9 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class=".col-md-6 .col-md-offset-4">
+			<div class="col-md-10 .col-md-offset-1">
 				<h2>ダイレクトメッセージ</h2>
+				<p>ダイレクトメッセージ開始したいユーザーを選択してください。</p>
 				<form action="CreateDRoomServlet" method="post">
 					<div class="div-control">
 						<select class="input-control" name="username2">
@@ -36,7 +37,7 @@
 					</div>
 					<div class="div-control">
 					<input type ="hidden" name="username1" value="<%=username1%>">
-						<input type="submit" value="招待" class="btn-left">
+						<input type="submit" value="招待" class="btn">
 					</div>
 				</form>
 			</div>

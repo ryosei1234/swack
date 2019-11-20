@@ -1,9 +1,9 @@
 @charset "UTF-8";
-
 body{
  background:linear-gradient(-45deg,
      rgba(0, 153, 255, 0),
      rgba(0, 153, 255, 0.8));
+    font-family: 游ゴシック;
 }
 .btn-true{
      background:linear-gradient(-45deg,
@@ -24,12 +24,16 @@ body{
 
 .container{
     margin-top: 5px;
-    margin-bottom: 4%;
+    margin-bottom: 20%;
     padding: 5%;
 }
 .right{
     color: white;
 }
+h3,h4{
+    padding: 2%;
+}
+
 h5{
     padding: 2%;
     color: red;

@@ -17,13 +17,15 @@
 				<%
 					if ((boolean) request.getAttribute("success")) {
 				%>
-				<h3>会員登録が完了しました。</h3>
+				<h3>会員登録が完了しました</h3>
+				<h4>ログイン画面へ移動</h4>
 				<form action="login.jsp">
-					<input type="submit" value="完了" class="input-control btn-true">
+					<input type="submit" value="移動" class="input-control btn-true">
 				</form>
 				<%
 					} else {
 				%>
+
 				<h3>会員登録に失敗しました。</h3>
 				<h5>既にこのメールアドレスは使用されています。</h5>
 				<h3 class="right">新規会員登録</h3>
@@ -49,7 +51,6 @@
 					}
 				%>
 			</div>
-			<div class="col-md-3"></div>
 		</div>
 	</div>
 
