@@ -17,10 +17,11 @@
 	%>
 	<div class="container">
 		<div class="row">
-			<div class=".col-md-6 .col-md-offset-4">
+			<div class="col-md-10  col-md-offset-1">
 				<h2>
 					#<%=roomname%>に招待
 					</h2>
+					<p>ルームに招待したいユーザを選択してください。</p>
 				<form action="InviteServlet" method="post">
 					<div class="div-control">
 						<select class="input-control" name="username">
@@ -36,14 +37,11 @@
 							%>
 						</select>
 					</div>
-					<div class="div-control">
 					<input type ="hidden" name="roomname" value="<%=roomname%>">
-						<input type="submit" value="招待" class="btn-left">
-					</div>
+					<input type="submit" value="招待" class="btn">
 				</form>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
