@@ -10,15 +10,16 @@ body {
 	font-family: 游ゴシック;
 	background-color: #330033;
 }
-.row{
-    margin-bottom: 4%;
-}
-.left {
-	color: #6074ff;
-	margin-bottom: 50%;
-		height: 40px;
-	position: fixed;
 
+.row {
+	margin-bottom: 4%;
+}
+
+.left {
+	color: #ffffff;
+	margin-bottom: 50%;
+	height: 40px;
+	position: fixed;
 }
 
 .header {
@@ -40,7 +41,8 @@ body {
 
 .roomlist-name {
 	text-decoration: none;
-	color: #6074ff;
+	color: #ffffff;
+	opacity: 0.6;
 	font-size: 20px
 }
 
@@ -61,19 +63,25 @@ footer {
 	position: absolute;
 	bottom: 0%;
 }
-
-.btn-right-radius {
-  position: relative;
-  padding: 0.25em 0.5em;
-  text-decoration: none;
-  color: #6074ff;
-  background: #ECECEC;
-  transition: .4s;
+.btn:hover {
+  	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.6),
+		rgba(0, 153, 255, 0.9));
+	color: white;
 }
-
-.btn-right-radius:hover {
-  background: #636363;
-}
-.channel-top{
+.channel-top {
 	font-weight: bold;
+}
+
+.btn {
+	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.3),
+		rgba(0, 153, 255, 0.5));
+	color: white;
+	border-radius: 3px;
+}
+/*
+.btn-form {
+	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.7),
+		rgba(0, 153, 255, 0.9));
+	color: white;
+	border-radius: 3px;
 }

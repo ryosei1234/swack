@@ -33,7 +33,7 @@
 		<div class="row">
 			<div class="col-md-2 left">
 				<form action="LogoutServlet" method="post">
-					<input type="submit" value="ログアウト" class="btn-right-radius">
+					<input type="submit" value="ログアウト" class="btn">
 				</form>
 				<h4>
 					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
@@ -43,7 +43,7 @@
 				<h4 class="channel-top">ルーム</h4>
 				<form action="InviteServlet" method="post">
 					<input type="hidden" name="roomname" value="<%=roomname%>">
-					<input type="submit" value="ルーム招待" class="btn-right-radius">
+					<input type="submit" value="ルーム招待" class="btn">
 				</form>
 				<%
 					ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
@@ -58,13 +58,13 @@
 				<form action="CreateRoomServlet" method="post">
 					<input type="hidden" name="username" value=<%=username%>> <input
 						type="text" name="roomadd" placeholder="ルーム名"> <input
-						type="submit" value="追加">
+						type="submit" value="追加" class="btn">
 				</form>
 				<br>
 				<h4 class="channel-top">ダイレクトメッセージ</h4>
 				<form action="CreateDRoomServlet" method="post">
 					<input type="hidden" name="username1" value=<%=username%>>
-					<input type="submit" value="ユーザー選択" class="btn-right-radius">
+					<input type="submit" value="ユーザー選択" class="btn">
 				</form>
 				<%
 					ArrayList<String> droomlist = (ArrayList<String>) request.getAttribute("droomlist");
@@ -102,7 +102,7 @@
 			<input type="hidden" name="roomname" value=<%=roomname%>>
 			<input type="hidden" name="username" value=<%=username%>>
 			<input type="text" name="message" placeholder="Hello World" class="message">
-			<input type="submit" value="送信" class="btn-right-radius">
+			<input type="submit" value="送信" class="btn">
 		</form>
 	</footer>
 </body>
