@@ -22,6 +22,7 @@
 <body>
 	<jsp:useBean id="username" class="java.lang.String" scope="request" />
 	<jsp:useBean id="roomname" class="java.lang.String" scope="request" />
+	<jsp:useBean id="direct" class="java.lang.String" scope="request" />
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-2 header ">
@@ -71,7 +72,7 @@
 					for (String list : droomlist) {
 				%>
 				<a class="roomlist-name"
-					href="ChatSarvlet?roomname=<%=list%> direct="true"> <%=list%></a><br>
+					href="ChatSarvlet?roomname=<%=list%>&direct=true"> <%=list%></a><br>
 				<%
 					}
 				%>
@@ -101,6 +102,7 @@
 		<form action="ChatSarvlet" method="post">
 			<input type="hidden" name="roomname" value=<%=roomname%>>
 			<input type="hidden" name="username" value=<%=username%>>
+			<input type="hidden" name="direct" value=<%=direct%>>
 			<input type="text" name="message" placeholder="Hello World" class="message">
 			<input type="submit" value="送信" class="btn">
 		</form>
