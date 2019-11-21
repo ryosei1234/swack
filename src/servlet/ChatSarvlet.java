@@ -50,7 +50,8 @@ public class ChatSarvlet extends HttpServlet {
 			//正常 ユーザー名取得
 			UserDAO userDAO = new UserDAO();
 			String mailad = (String) session.getAttribute("mailad");
-			username = userDAO.conversion(mailad);
+			String password = (String) session.getAttribute("password");
+			username = userDAO.conversion(mailad, password);
 		}
 
 		//TODO 初期部屋

@@ -71,6 +71,7 @@ public class LoginServlet extends HttpServlet {
 		if (userDAO.canLogin(mailad, password)) {
 			System.out.println("ログイン成功");
 			session.setAttribute("mailad", mailad);
+			session.setAttribute("password", password);
 
 			//クッキー発行//////////////////////////////////////↓
 			System.out.println(check);
