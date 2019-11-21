@@ -12,6 +12,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import dao.ChatlogDAO;
+import dao.DChatlogDAO;
 
 @ServerEndpoint("/loadMessage")
 public class Websocket {
@@ -31,8 +32,15 @@ public class Websocket {
 		String roomname = Info[0];
 		String username = Info[1];
 		String messages = Info[2];
-		ChatlogDAO chatlogDAO = new ChatlogDAO();
-		chatlogDAO.saveChatlog(roomname, username, messages);
+		String direct = Info[3];
+
+		if (direct.equals("false")) {
+			ChatlogDAO chatlogDAO = new ChatlogDAO();
+			chatlogDAO.saveChatlog(roomname, username, messages);
+		} else {
+			DChatlogDAO dchatlogDAO = new DChatlogDAO();
+			dchatlogDAO.saveDChatlog(roomname, username, messages);
+		}
 
 		messages = "[" + username + "]" + messages;
 		for (Session session : sessions) {

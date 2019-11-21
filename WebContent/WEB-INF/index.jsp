@@ -51,12 +51,14 @@
 		var messageInput = document.getElementById("messageInput");
 		var roomnameInput= document.getElementById("roomnameInput");
 		var usernameInput = document.getElementById("usernameInput");
+		var directInput = document.getElementById("directInput")
 		messageInput.onkeypress = function(e) {
 			if (13 == e.keyCode) {
 			var roomname=roomnameInput.value;
 			var username = usernameInput.value;
 			var message = messageInput.value;
-			var Info=roomname +" "+username+" "+message;
+			var direct = directInput.value;
+			var Info=roomname +" "+username+" "+message+" "+direct;
 				if (webSocket && "" != message) {
 					webSocket.send(Info);
 					messageInput.value = "";
@@ -151,7 +153,7 @@
 	<footer>
 			<input type="hidden" name="roomname" id="roomnameInput" value=<%=roomname%>>
 			<input type="hidden" name="username" id="usernameInput" value=<%=username%>>
-			<input type="hidden" name="direct" value=<%=direct%>>
+			<input type="hidden" name="direct" id="directInput" value=<%=direct%>>
 			<input type="text" name="message" class="message" id="messageInput">
 			<input type="submit" value="送信" class="btn">
 	</footer>
