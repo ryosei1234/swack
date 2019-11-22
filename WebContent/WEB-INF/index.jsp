@@ -38,6 +38,7 @@
 				<h4 class="channel-top head">ルーム</h4>
 				<!-- ルーム一覧 -->
 				<form action="JoinServlet" method="post" class="channel-top">
+					<input type="hidden" name="username" value="<%=username%>">
 					<input type="submit" value="ルーム一覧" class="btn">
 				</form>
 				<!-- ルーム招待 -->
@@ -84,7 +85,6 @@
 				<%
 					}
 				%>
-
 			</div>
 			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
@@ -96,7 +96,8 @@
 							%>
 							[<%=bean.getUsername()%>]
 							<%=bean.getMessage()%>
-							<br> <br>
+							<hr>
+
 							<%
 								}
 							%>
@@ -113,8 +114,9 @@
 			value=<%=roomname%>> <input type="hidden" name="username"
 			id="usernameInput" value=<%=username%>> <input type="hidden"
 			name="direct" id="directInput" value=<%=direct%>> <input
-			type="text" name="message" class="message" id="messageInput">
-		<input type="submit" value="送信" class="btn">
+			type="text" name="message" class="message" id="messageInput"
+			placeholder="Hello World"> <input type="submit" value="送信"
+			class="btn">
 	</footer>
 </body>
 </html>
