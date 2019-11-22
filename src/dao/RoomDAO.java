@@ -67,4 +67,25 @@ public class RoomDAO {
 
 	}
 
+	public String getCheckbox(String roomname) {
+		String sql = "SELECT private FROM room WHERE roomname = ?";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, roomname);
+				ResultSet rs = pst.executeQuery();
+				if (rs.next()) {
+					String checkbox = rs.getString("private");
+					return checkbox;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
 }
