@@ -6,7 +6,7 @@
 }
 
 body {
-	font-size: 14px;
+	font-size: 17px;
 	font-family: 游ゴシック;
 	background-color: #330033;
 }
@@ -43,7 +43,7 @@ body {
 	text-decoration: none;
 	color: #ffffff;
 	opacity: 0.6;
-	font-size: 20px
+	font-size: 17px
 }
 
 input.message {
@@ -70,6 +70,7 @@ footer {
 }
 .channel-top {
 	font-weight: bold;
+	padding: 2px;
 }
 
 .btn {
@@ -77,4 +78,9 @@ footer {
 		rgba(0, 153, 255, 0.5));
 	color: white;
 	border-radius: 3px;
+	font-size: 14px;
+
+}
+.head{
+	padding-top: 15px;
 }

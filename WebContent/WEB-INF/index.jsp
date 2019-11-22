@@ -35,32 +35,20 @@
 				</form>
 				<h4>
 					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
-
-				<br>
-
-				<h4 class="channel-top">ルーム</h4>
+				<h4 class="channel-top head">ルーム</h4>
 				<!-- ルーム一覧 -->
-				<form action="JoinServlet" method="post">
+				<form action="JoinServlet" method="post" class="channel-top">
 					<input type="submit" value="ルーム一覧" class="btn">
 				</form>
 				<!-- ルーム招待 -->
-				<form action="InviteServlet" method="post">
+				<form action="InviteServlet" method="post" class="channel-top">
 					<input type="hidden" name="roomname" value="<%=roomname%>">
 					<input type="submit" value="ルーム招待" class="btn">
 				</form>
-				<%
-					ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
-					for (String list : roomlist) {
-				%>
-				<a class="roomlist-name" href="ChatSarvlet?roomname=<%=list%>">#
-					<%=list%></a><br>
-				<%
-					}
-				%>
 				<!-- ルーム作成 -->
-				<dl>
+				<dl class="channel-top">
 					<dt>
-						<a id="modal-open" class="button-link"> ルーム作成</a>
+						<button type="submit" id="modal-open" class="btn">ルーム作成</button>
 					</dt>
 					<dd class="modal">
 						<h3>ルーム作成</h3>
@@ -72,8 +60,16 @@
 						</form>
 					</dd>
 				</dl>
-				<br>
-				<h4 class="channel-top">ダイレクトメッセージ</h4>
+				<%
+					ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
+					for (String list : roomlist) {
+				%>
+				<a class="roomlist-name" href="ChatSarvlet?roomname=<%=list%>">#
+					<%=list%></a><br>
+				<%
+					}
+				%>
+				<h4 class="channel-top head">ダイレクトメッセージ</h4>
 				<!-- DMユーザー選択 -->
 				<form action="CreateDRoomServlet" method="post">
 					<input type="hidden" name="username1" value=<%=username%>>

@@ -5,27 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ダイレクトメッセージ</title>
+<title>ルーム一覧</title>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/invite.css">
+<link rel="stylesheet" href="css/join.css">
 </head>
 <body>
 <%
-		String username1 = request.getParameter("username1");
+		String username = request.getParameter("username");
 	%>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<h2>ダイレクトメッセージ</h2>
-				<p>ダイレクトメッセージを開始したいユーザーを選択してください。</p>
-				<form action="CreateDRoomServlet" method="post">
+				<h2>ルーム一覧</h2>
+				<p>参加するルームを選択してください。</p>
+				<form action="JoinServlet" method="post">
 					<div class="div-control">
-						<select class="input-control" name="username2">
+						<select class="input-control" name="roomname">
 							<%
-								ArrayList<String> userlist = (ArrayList<String>) request.getAttribute("userlist");
-								for (String list : userlist) {
+								ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
+								for (String list : roomlist) {
 							%>
 							<option>
 								<%=list%>
@@ -36,8 +36,8 @@
 						</select>
 					</div>
 					<div class="div-control">
-					<input type ="hidden" name="username1" value="<%=username1%>">
-						<input type="submit" value="招待" class="btn">
+						<input type="hidden" name="roomname" value="<%=username%>">
+						<input type="submit" value="参加" class="btn">
 					</div>
 				</form>
 			</div>

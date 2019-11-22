@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ルーム招待</title>
-<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/invite.css">
