@@ -36,7 +36,7 @@
 						</select>
 					</div>
 					<div class="div-control">
-						<input type="hidden" name="roomname" value="<%=username%>">
+						<input type="hidden" name="username" value="<%=username%>">
 						<input type="submit" value="参加" class="btn">
 					</div>
 				</form>

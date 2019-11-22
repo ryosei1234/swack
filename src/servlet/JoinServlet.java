@@ -28,6 +28,7 @@ public class JoinServlet extends HttpServlet {
 		if (roomname == null) {
 			RoomDAO roomdao = new RoomDAO();
 			ArrayList<String> roomlist = roomdao.getPRoomList();
+			request.setAttribute("username", username);
 			request.setAttribute("roomlist", roomlist);
 			request.getRequestDispatcher("WEB-INF/join.jsp").forward(request, response);
 		} else {
