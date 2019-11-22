@@ -30,8 +30,8 @@ public class RoomDAO {
 
 	}
 
-	public void saveRoom(String roomname, String username) {
-		String sql = "INSERT INTO room VALUES(?,?)";
+	public void saveRoom(String roomname, String username, String checkbox) {
+		String sql = "INSERT INTO room VALUES(?,?,?)";
 
 		try {
 			Class.forName(DRIVER_NAME);
@@ -39,6 +39,7 @@ public class RoomDAO {
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, roomname);
 				pst.setString(2, username);
+				pst.setString(3, checkbox);
 				int cnt = pst.executeUpdate();
 			}
 		} catch (Exception e) {
