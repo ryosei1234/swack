@@ -23,10 +23,11 @@ public class CreateRoomServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roomname = request.getParameter("roomadd");
 		String username = request.getParameter("username");
+		String checkbox = request.getParameter("checkbox");
 
 		RoomDAO roomdao = new RoomDAO();
 		if (roomdao.checkRoom(roomname)) {
-			roomdao.saveRoom(roomname, username);
+			roomdao.saveRoom(roomname, username, checkbox);
 		} else {
 			System.out.println("同じルーム名は作成できません");
 		}

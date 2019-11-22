@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 					mailad = value.mailad;
 					password = value.password;
 					Cookie recooksessionid = new Cookie("sessionid", sessionid);
-					recooksessionid.setMaxAge(60 * 3);
+					recooksessionid.setMaxAge(60 * 60 * 24);
 					response.addCookie(recooksessionid);
 					if (mailad == null) {
 						Cookie cooksessionid = new Cookie("sessionid", "");

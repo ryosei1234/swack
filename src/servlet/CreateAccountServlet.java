@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.RoomDAO;
 import dao.UserDAO;
 
 /**
@@ -27,11 +28,15 @@ public class CreateAccountServlet extends HttpServlet {
 
 		UserDAO userdao = new UserDAO();
 		boolean success;
+		String messege = "";
+
 		if (userdao.canRegist(username, password, mailad)) {//登録成功
-			System.out.println("登録成功");
+			messege = ("登録成功");
+			RoomDAO roomDAO = new RoomDAO();
+			roomDAO.saveRoom("everyone", username, null);
 			success = true;
 		} else {
-			System.out.println("登録失敗");
+			messege = ("登録失敗");
 			success = false;
 		}
 		request.setAttribute("success", success);

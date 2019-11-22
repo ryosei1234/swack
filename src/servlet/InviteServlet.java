@@ -35,7 +35,7 @@ public class InviteServlet extends HttpServlet {
 			return;
 		} else {
 			RoomDAO roomDAO = new RoomDAO();
-			roomDAO.saveRoom(roomname, username);
+			//roomDAO.saveRoom(roomname, username);
 			response.sendRedirect("ChatSarvlet");
 		}
 	}
