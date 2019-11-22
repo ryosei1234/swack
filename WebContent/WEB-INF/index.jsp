@@ -8,10 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Swack</title>
-<script src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/modal.css">
 <!--<script>
 	const timer = 10000
 	window.addEventListener('load', function() {
@@ -23,7 +25,8 @@
 	window.onload = function() {
 		var forRtoA = document.createElement('a');
 		forRtoA.href = "loadMessage";
-		webSocket = new WebSocket(forRtoA.href.replace("http://", "ws://").replace("https://", "wss://"));
+		webSocket = new WebSocket(forRtoA.href.replace("http://", "ws://")
+				.replace("https://", "wss://"));
 		var messageArea = document.getElementById("messageArea");
 		var appendMessage = function(value, color) {
 			var messageElement = document.createElement("div");
@@ -49,16 +52,17 @@
 			appendMessage(message, "red");
 		}
 		var messageInput = document.getElementById("messageInput");
-		var roomnameInput= document.getElementById("roomnameInput");
+		var roomnameInput = document.getElementById("roomnameInput");
 		var usernameInput = document.getElementById("usernameInput");
 		var directInput = document.getElementById("directInput")
 		messageInput.onkeypress = function(e) {
 			if (13 == e.keyCode) {
-			var roomname=roomnameInput.value;
-			var username = usernameInput.value;
-			var message = messageInput.value;
-			var direct = directInput.value;
-			var Info=roomname +" "+username+" "+message+" "+direct;
+				var roomname = roomnameInput.value;
+				var username = usernameInput.value;
+				var message = messageInput.value;
+				var direct = directInput.value;
+				var Info = roomname + " " + username + " " + message + " "
+						+ direct;
 				if (webSocket && "" != message) {
 					webSocket.send(Info);
 					messageInput.value = "";
@@ -76,8 +80,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-2 header ">
-				<h2>
-					#<%=roomname%></h2>
+				<h2>#<%=roomname%></h2>
 			</div>
 		</div>
 		<!-- header -->
@@ -105,12 +108,20 @@
 				<%
 					}
 				%>
-
-				<form action="CreateRoomServlet" method="post">
-					<input type="hidden" name="username" value=<%=username%>> <input
-						type="text" name="roomadd" placeholder="ルーム名"> <input
-						type="submit" value="追加" class="btn">
-				</form>
+				<dl>
+					<dt>
+						<a id="modal-open" class="button-link"> ルーム作成</a>
+					</dt>
+					<dd class="modal">
+						<h3>ルーム作成</h3>
+						<form action="CreateRoomServlet" method="post">
+							<input type="hidden" name="username"  value=<%=username%>>
+							<input type="text" name="roomadd" placeholder="ルーム名">
+							<input type="submit" value="追加" class="btn"><br>
+							<input type="checkbox" name="checkbox" value="true">公開範囲【プライベート】
+						</form>
+					</dd>
+				</dl>
 				<br>
 				<h4 class="channel-top">ダイレクトメッセージ</h4>
 				<form action="CreateDRoomServlet" method="post">
@@ -131,17 +142,17 @@
 			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
 					<div class="col-md-12">
-					<div id="messageArea">
-					<%
-							ArrayList<ChatlogBean> chatloglist = (ArrayList<ChatlogBean>) request.getAttribute("chatloglist");
-							for (ChatlogBean bean : chatloglist) {
-						%>
-						[<%=bean.getUsername()%>]
-						<%=bean.getMessage()%>
-						<br> <br>
-						<%
-							}
-						%>
+						<div id="messageArea">
+							<%
+								ArrayList<ChatlogBean> chatloglist = (ArrayList<ChatlogBean>) request.getAttribute("chatloglist");
+								for (ChatlogBean bean : chatloglist) {
+							%>
+							[<%=bean.getUsername()%>]
+							<%=bean.getMessage()%>
+							<br> <br>
+							<%
+								}
+							%>
 						</div>
 					</div>
 				</div>
@@ -151,11 +162,12 @@
 	</div>
 	<!-- container -->
 	<footer>
-			<input type="hidden" name="roomname" id="roomnameInput" value=<%=roomname%>>
-			<input type="hidden" name="username" id="usernameInput" value=<%=username%>>
-			<input type="hidden" name="direct" id="directInput" value=<%=direct%>>
-			<input type="text" name="message" class="message" id="messageInput">
-			<input type="submit" value="送信" class="btn">
+		<input type="hidden" name="roomname" id="roomnameInput"
+			value=<%=roomname%>> <input type="hidden" name="username"
+			id="usernameInput" value=<%=username%>> <input type="hidden"
+			name="direct" id="directInput" value=<%=direct%>> <input
+			type="text" name="message" class="message" id="messageInput">
+		<input type="submit" value="送信" class="btn">
 	</footer>
 </body>
 </html>
