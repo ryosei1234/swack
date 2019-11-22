@@ -32,7 +32,7 @@ public class DRoomDAO {
 	}
 
 	public void saveDRoom(String roomname, String username1, String username2) {
-		String sql = "INSERT ALL INTO droom VALUES(?,?) INTO droom VALUES(?,?) SELECT * FROM DUAL";
+		String sql = "INSERT ALL INTO droom VALUES(?,?,'true') INTO droom VALUES(?,?,'true') SELECT * FROM DUAL";
 
 		try {
 			Class.forName(DRIVER_NAME);
