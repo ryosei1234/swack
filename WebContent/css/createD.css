@@ -6,6 +6,11 @@ body {
 	font-family: 游ゴシック;
 }
 
+.btn:hover {
+  	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.9),
+		rgba(0, 153, 255, 0.9));
+	color: white;
+}
 .btn {
 	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.5),
 	rgba(0, 153, 255, 0.5));
@@ -14,6 +19,7 @@ body {
 	height: 35px;
 	border-radius: 8px;
 }
+
 
 .col-md-10 {
 	padding: 5%;

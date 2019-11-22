@@ -39,6 +39,11 @@
 				<br>
 
 				<h4 class="channel-top">ルーム</h4>
+				<!-- ルーム一覧 -->
+				<form action="JoinServlet" method="post">
+					<input type="submit" value="ルーム一覧" class="btn">
+				</form>
+				<!-- ルーム招待 -->
 				<form action="InviteServlet" method="post">
 					<input type="hidden" name="roomname" value="<%=roomname%>">
 					<input type="submit" value="ルーム招待" class="btn">
@@ -52,6 +57,7 @@
 				<%
 					}
 				%>
+				<!-- ルーム作成 -->
 				<dl>
 					<dt>
 						<a id="modal-open" class="button-link"> ルーム作成</a>
@@ -68,6 +74,7 @@
 				</dl>
 				<br>
 				<h4 class="channel-top">ダイレクトメッセージ</h4>
+				<!-- DMユーザー選択 -->
 				<form action="CreateDRoomServlet" method="post">
 					<input type="hidden" name="username1" value=<%=username%>>
 					<input type="submit" value="ユーザー選択" class="btn">
