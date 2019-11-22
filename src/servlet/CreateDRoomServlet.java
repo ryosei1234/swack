@@ -33,7 +33,7 @@ public class CreateDRoomServlet extends HttpServlet {
 			request.setAttribute("userlist", userlist);
 			request.getRequestDispatcher("WEB-INF/createD.jsp").forward(request, response);
 		} else {
-			String roomname = username1 + username2;
+			String roomname = username1 + "と" + username2;
 
 			DRoomDAO droomdao = new DRoomDAO();
 			droomdao.saveDRoom(roomname, username1, username2);
