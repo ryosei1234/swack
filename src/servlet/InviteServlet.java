@@ -35,7 +35,8 @@ public class InviteServlet extends HttpServlet {
 			return;
 		} else {
 			RoomDAO roomDAO = new RoomDAO();
-			//roomDAO.saveRoom(roomname, username);
+			String checkbox = roomDAO.getCheckbox(roomname);
+			roomDAO.saveRoom(roomname, username, checkbox);
 			response.sendRedirect("ChatSarvlet");
 		}
 	}
