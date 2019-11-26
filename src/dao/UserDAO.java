@@ -104,15 +104,16 @@ public class UserDAO {
 
 	}
 
-	public ArrayList<String> getDUserList(String username) {
+	public ArrayList<String> getDUserList(String username1) {
 		ArrayList<String> userlist = new ArrayList<String>();
-		String sql = "SELECT distinct u.USERNAME FROM USERS u , DROOM d WHERE u.username NOT IN (SELECT username FROM droom WHERE roomname IN (SELECT distinct roomname FROM droom WHERE username = ?))";
+		String sql = "SELECT distinct u.USERNAME FROM USERS u , DROOM d WHERE u.username NOT IN (SELECT username FROM droom WHERE roomname IN (SELECT distinct roomname FROM droom WHERE username = ?)) AND u.username != ?";
 
 		try {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
 					PreparedStatement pst = conn.prepareStatement(sql);) {
-				pst.setString(1, username);
+				pst.setString(1, username1);
+				pst.setString(2, username1);
 				ResultSet rs = pst.executeQuery();
 				while (rs.next()) {
 					userlist.add(rs.getString("username"));
