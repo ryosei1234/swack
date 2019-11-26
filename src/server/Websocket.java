@@ -13,6 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 
 import dao.ChatlogDAO;
 import dao.DChatlogDAO;
+import security.SecurityUtil;
 
 @ServerEndpoint("/loadMessage")
 public class Websocket {
@@ -28,10 +29,11 @@ public class Websocket {
 	public void onMessage(String message) throws IOException {
 		System.out.println(message);
 		// クライアントからの受信時
+
 		String[] Info = message.split(" ", 0);
 		String roomname = Info[0];
 		String username = Info[1];
-		String messages = Info[2];
+		String messages = SecurityUtil.getESCEncodingString(Info[2]);
 		String direct = Info[3];
 
 		if (direct.equals("false")) {
