@@ -82,15 +82,37 @@ public class UserDAO {
 
 	}
 
-	public ArrayList<String> getUserList() {
-		ArrayList<String> userlist = new ArrayList<String>(); // ここでroomnameを受け取る
-		String sql = "SELECT USERNAME FROM USERS"; // SELECT DIDTINCT USERS.USERNAME FROM USERS , ROOM WHERE ROOM.ROOMNAME = ?;
+	public ArrayList<String> getUserList(String username, String roomname) {
+		ArrayList<String> userlist = new ArrayList<String>();
+		String sql = "SELECT distinct u.USERNAME FROM USERS u , ROOM r WHERE u.username != ? AND u.username NOT IN (SELECT username FROM room WHERE roomname = ?)";
 
 		try {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
 					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, username);
+				pst.setString(2, roomname);
+				ResultSet rs = pst.executeQuery();
+				while (rs.next()) {
+					userlist.add(rs.getString("username"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userlist;
 
+	}
+
+	public ArrayList<String> getDUserList(String username) {
+		ArrayList<String> userlist = new ArrayList<String>();
+		String sql = "SELECT distinct u.USERNAME FROM USERS u , DROOM d WHERE u.username NOT IN (SELECT username FROM droom WHERE roomname IN (SELECT distinct roomname FROM droom WHERE username = ?))";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, username);
 				ResultSet rs = pst.executeQuery();
 				while (rs.next()) {
 					userlist.add(rs.getString("username"));

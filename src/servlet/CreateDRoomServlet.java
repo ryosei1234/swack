@@ -28,7 +28,7 @@ public class CreateDRoomServlet extends HttpServlet {
 
 		if (username2 == null) {
 			UserDAO userDAO = new UserDAO();
-			ArrayList<String> userlist = userDAO.getUserList();
+			ArrayList<String> userlist = userDAO.getDUserList(username1);
 			request.setAttribute("username1", username1);
 			request.setAttribute("userlist", userlist);
 			request.getRequestDispatcher("WEB-INF/createD.jsp").forward(request, response);

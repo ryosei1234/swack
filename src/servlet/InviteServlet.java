@@ -25,10 +25,11 @@ public class InviteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roomname = request.getParameter("roomname");
 		String username = request.getParameter("username");
+		String myusername = request.getParameter("myusername");
 
 		if (username == null) {
 			UserDAO userDAO = new UserDAO();
-			ArrayList<String> userlist = userDAO.getUserList();
+			ArrayList<String> userlist = userDAO.getUserList(myusername, roomname);
 			request.setAttribute("roomname", roomname);
 			request.setAttribute("userlist", userlist);
 			request.getRequestDispatcher("WEB-INF/Invite.jsp").forward(request, response);
