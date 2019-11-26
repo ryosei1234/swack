@@ -33,7 +33,7 @@ public class Websocket {
 		String[] Info = message.split(" ", 0);
 		String roomname = Info[0];
 		String username = Info[1];
-		String messages = SecurityUtil.getESCEncodingString(Info[2]);
+		String messages = SecurityUtil.getESCEncodingString(Info[2]);//クロスサイト対策
 		String direct = Info[3];
 
 		if (direct.equals("false")) {
