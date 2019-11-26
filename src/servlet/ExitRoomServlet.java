@@ -24,8 +24,10 @@ public class ExitRoomServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String roomname = request.getParameter("roomname");
 
-		RoomDAO roomdao = new RoomDAO();
-		roomdao.exitRoom(username, roomname);
+		if (!roomname.equals("everyone")) {
+			RoomDAO roomdao = new RoomDAO();
+			roomdao.exitRoom(username, roomname);
+		}
 		response.sendRedirect("ChatSarvlet");
 	}
 
