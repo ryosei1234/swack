@@ -108,4 +108,22 @@ public class RoomDAO {
 
 	}
 
+	public void exitRoom(String username, String roomname) {
+
+		String sql = "DELETE FROM room WHERE roomname = ? AND username = ?";
+
+		try {
+			Class.forName(DRIVER_NAME);
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, roomname);
+				pst.setString(2, username);
+				int cnt = pst.executeUpdate();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

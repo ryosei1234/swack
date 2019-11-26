@@ -41,6 +41,12 @@
 					<input type="hidden" name="username" value="<%=username%>">
 					<input type="submit" value="ルーム一覧" class="btn">
 				</form>
+				<!-- ルーム脱退 -->
+				<form action="ExitRoomServlet" method="post" class="channel-top">
+					<input type="hidden" name="username" value="<%=username%>">
+					<input type="hidden" name="roomname" value="<%=roomname%>">
+					<input type="submit" value="ルーム脱退" class="btn">
+				</form>
 				<!-- ルーム招待 -->
 				<form action="InviteServlet" method="post" class="channel-top">
 					<input type="hidden" name="roomname" value="<%=roomname%>">
