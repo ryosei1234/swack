@@ -36,37 +36,48 @@
 				<h4>
 					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
 				<h4 class="channel-top head">ルーム</h4>
-				<!-- ルーム一覧 -->
-				<form action="JoinServlet" method="post" class="channel-top">
-					<input type="hidden" name="username" value="<%=username%>">
-					<input type="submit" value="ルーム一覧" class="btn">
-				</form>
-				<!-- ルーム脱退 -->
-				<form action="ExitRoomServlet" method="post" class="channel-top">
-					<input type="hidden" name="username" value="<%=username%>">
-					<input type="hidden" name="roomname" value="<%=roomname%>">
-					<input type="submit" value="ルーム脱退" class="btn">
-				</form>
-				<!-- ルーム招待 -->
-				<form action="InviteServlet" method="post" class="channel-top">
-					<input type="hidden" name="roomname" value="<%=roomname%>">
-					<input type="submit" value="ルーム招待" class="btn">
-				</form>
-				<!-- ルーム作成 -->
-				<dl class="channel-top">
-					<dt>
-						<button type="submit" id="modal-open" class="btn">ルーム作成</button>
-					</dt>
-					<dd class="modal">
-						<h3>ルーム作成</h3>
-						<form action="CreateRoomServlet" method="post">
-							<input type="hidden" name="username" value=<%=username%>>
-							<input type="text" name="roomadd" placeholder="ルーム名"> <input
-								type="submit" value="追加" class="btn"><br> <input
-								type="checkbox" name="checkbox" value="true">公開範囲【プライベート】
+				<div class="row">
+					<div class="col-md-6">
+						<!-- ルーム一覧 -->
+						<form action="JoinServlet" method="post" class="channel-top">
+							<input type="hidden" name="username" value="<%=username%>">
+							<input type="submit" value="ルーム一覧" class="btn">
 						</form>
-					</dd>
-				</dl>
+						<!-- ルーム招待 -->
+						<form action="InviteServlet" method="post" class="channel-top">
+							<input type="hidden" name="roomname" value="<%=roomname%>">
+							<input type="hidden" name="myusername" value="<%=username%>">
+							<input type="submit" value="ルーム招待" class="btn">
+						</form>
+					</div>
+
+					<div class="col-md-6">
+						<!-- ルーム脱退 -->
+						<form action="ExitRoomServlet" method="post" class="channel-top">
+							<input type="hidden" name="username" value="<%=username%>">
+							<input type="hidden" name="roomname" value="<%=roomname%>">
+							<input type="submit" value="ルーム脱退" class="btn">
+						</form>
+						<!-- ルーム作成 -->
+						<dl class="channel-top">
+							<dt>
+								<button type="submit" id="modal-open" class="btn">ルーム作成</button>
+							</dt>
+							<dd class="modal">
+								<h3>ルーム作成</h3>
+								<form action="CreateRoomServlet" method="post">
+									<input type="hidden" name="username" value=<%=username%>>
+									<input type="text" name="roomadd" placeholder="ルーム名"> <input
+										type="submit" value="追加" class="btn"><br> <input
+										type="checkbox" name="checkbox" value="true">公開範囲【プライベート】
+								</form>
+							</dd>
+						</dl>
+					</div>
+				</div>
+
+
+
 				<%
 					ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
 					for (String list : roomlist) {
