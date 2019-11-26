@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.RoomDAO;
 import dao.UserDAO;
+import validation.CheckParameter;
 
 /**
  * Servlet implementation class CreateAccountServlet
@@ -27,18 +28,32 @@ public class CreateAccountServlet extends HttpServlet {
 		String password = request.getParameter("password");
 
 		UserDAO userdao = new UserDAO();
-		boolean success;
-		String messege = "";
+		boolean success = false;
+		String message = "";
 
-		if (userdao.canRegist(username, password, mailad)) {//登録成功
-			messege = ("登録成功");
-			RoomDAO roomDAO = new RoomDAO();
-			roomDAO.saveRoom("everyone", username, null);
-			success = true;
+		if (CheckParameter.isNotEmpty(username)) {
+			if (CheckParameter.isNotEmpty(mailad)) {
+				if (CheckParameter.isNotEmpty(password)) {
+					if (userdao.canRegist(username, password, mailad)) {//登録成功
+						message = ("登録成功");
+						RoomDAO roomDAO = new RoomDAO();
+						roomDAO.saveRoom("everyone", username, null);
+						success = true;
+					} else {
+						message = ("このユーザ名は使用されています");
+					}
+				} else {
+					message = ("パスワードが未入力です。");
+				}
+			} else {
+				message = ("メールアドレスが未入力です。");
+			}
 		} else {
-			messege = ("登録失敗");
-			success = false;
+			message = ("ユーザ名が未入力です。");
 		}
+
+		System.out.println(message);
+		request.setAttribute("message", message);
 		request.setAttribute("success", success);
 		request.getRequestDispatcher("WEB-INF/access.jsp").forward(request, response);
 	}
