@@ -88,14 +88,15 @@ public class RoomDAO {
 
 	}
 
-	public ArrayList<String> getPRoomList() {
+	public ArrayList<String> getPRoomList(String username) {
 		ArrayList<String> roomlist = new ArrayList<String>();
-		String sql = "SELECT DISTINCT ROOMNAME FROM ROOM WHERE  PRIVATE IS NULL";
+		String sql = "SELECT DISTINCT ROOMNAME FROM ROOM WHERE  PRIVATE IS NULL AND roomname NOT IN(SELECT roomname FROM room WHERE username = ?)";
 
 		try {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
 					PreparedStatement pst = conn.prepareStatement(sql);) {
+				pst.setString(1, username);
 				ResultSet rs = pst.executeQuery();
 				while (rs.next()) {
 					roomlist.add(rs.getString("roomname"));
