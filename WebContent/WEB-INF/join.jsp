@@ -41,8 +41,10 @@
 					</div>
 				</form>
 			</div>
+		    <!-- ルーム一覧 -->
 		</div>
+		<!-- row -->
 	</div>
-
+	<!-- container -->
 </body>
 </html>

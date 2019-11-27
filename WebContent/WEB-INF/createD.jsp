@@ -41,8 +41,11 @@
 					</div>
 				</form>
 			</div>
+			<!-- ダイレクトメッセージ -->
 		</div>
+		<!-- row -->
 	</div>
+	<!-- container -->
 
 </body>
 </html>

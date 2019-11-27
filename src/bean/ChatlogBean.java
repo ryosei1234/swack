@@ -4,13 +4,18 @@ import java.io.Serializable;
 
 public class ChatlogBean implements Serializable {
 
-	//シーケンス番号
+	/**
+	 * ChatlogBean<br>
+	 * チャット情報を保存しているbean
+	 *
+	 * @param no シーケンス番号
+	 * @param roomname ルーム名
+	 * @param username ユーザ名
+	 * @param message メッセージ
+	 */
 	private int no;
-	//ルーム名
 	private String roomname;
-	//ユーザ名
 	private String username;
-	//メッセージ
 	private String message;
 
 	public ChatlogBean(int no, String roomname, String username, String message) {

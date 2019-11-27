@@ -15,18 +15,18 @@ body {
 	margin-bottom: 4%;
 }
 
-.left {
-	color: #ffffff;
-	margin-bottom: 50%;
-	height: 40px;
-	position: fixed;
-}
-
 .header {
 	background-color: white;
 	color: black;
 	width: 1150px;
 	position: absolute;
+}
+
+.left {
+	color: #ffffff;
+	margin-bottom: 50%;
+	height: 40px;
+	position: fixed;
 }
 
 .right {
@@ -37,6 +37,18 @@ body {
 	width: 1150px;
 	height: 530px;
 	font-size: 16px;
+}
+
+footer {
+	width: 84%;
+	height: 80px;
+	background-color: white;
+	color: #000000;
+	text-align: center;
+	margin-left: 228px;
+	padding: 30px 0;
+	position: absolute;
+	bottom: 0%;
 }
 
 .roomlist-name {
@@ -52,17 +64,6 @@ input.message {
 	border-radius: 3px;
 }
 
-footer {
-	width: 84%;
-	height: 80px;
-	background-color: white;
-	color: #000000;
-	text-align: center;
-	margin-left: 228px;
-	padding: 30px 0;
-	position: absolute;
-	bottom: 0%;
-}
 .btn:hover {
   	background: linear-gradient(-45deg, rgba(0, 153, 255, 0.6),
 		rgba(0, 153, 255, 0.9));
@@ -79,8 +80,11 @@ footer {
 	color: white;
 	border-radius: 3px;
 	font-size: 14px;
-
 }
+.btn-position{
+	padding-right: 2px;
+}
+
 .head{
 	padding-top: 15px;
 }

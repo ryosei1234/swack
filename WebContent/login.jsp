@@ -9,13 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Swack Login</title>
-<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
 	<%
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
@@ -49,6 +48,7 @@
 					</div>
 				</form>
 			</div>
+			<!--left -->
 			<div class="col-md-6">
 				<h3 class="right">新規会員登録</h3>
 				<h5 class="right">氏名、メールアドレス、パスワードを入力してください。</h5>
@@ -70,8 +70,10 @@
 					</div>
 				</form>
 			</div>
+		    <!-- right -->
 		</div>
+		<!-- row -->
 	</div>
-	}
+	<!-- container -->
 </body>
 </html>

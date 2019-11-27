@@ -41,7 +41,10 @@
 					<input type="submit" value="招待" class="btn">
 				</form>
 			</div>
+		<!-- ルーム招待 -->
 		</div>
+		<!-- row -->
 	</div>
+	<!-- container -->
 </body>
 </html>

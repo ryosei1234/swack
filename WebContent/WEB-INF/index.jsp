@@ -26,8 +26,9 @@
 				<h2>
 					#<%=roomname%></h2>
 			</div>
+		    <!-- header -->
 		</div>
-		<!-- header -->
+		<!-- row -->
 		<div class="row">
 			<div class="col-md-2 left">
 				<form action="LogoutServlet" method="post">
@@ -37,7 +38,7 @@
 					ユーザ名：<%=username%><br> ルーム名：<%=roomname%></h4>
 				<h4 class="channel-top head">ルーム</h4>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6 btn-position">
 						<!-- ルーム一覧 -->
 						<form action="JoinServlet" method="post" class="channel-top">
 							<input type="hidden" name="username" value="<%=username%>">
@@ -50,7 +51,7 @@
 							<input type="submit" value="ルーム招待" class="btn">
 						</form>
 					</div>
-
+					<!-- left -->
 					<div class="col-md-6">
 						<!-- ルーム脱退 -->
 						<form action="ExitRoomServlet" method="post" class="channel-top">
@@ -74,10 +75,9 @@
 							</dd>
 						</dl>
 					</div>
+					<!-- right -->
 				</div>
-
-
-
+				<!-- row -->
 				<%
 					ArrayList<String> roomlist = (ArrayList<String>) request.getAttribute("roomlist");
 					for (String list : roomlist) {
@@ -103,6 +103,7 @@
 					}
 				%>
 			</div>
+			<!-- sidebar -->
 			<div class="col-md-10 col-md-offset-2  right">
 				<div class="row">
 					<div class="col-md-12">
@@ -122,17 +123,18 @@
 					</div>
 				</div>
 			</div>
+		    <!-- main -->
 		</div>
 		<!-- row -->
 	</div>
-	<!-- container -->
+	<!-- container-fluid -->
 	<footer>
 		<input type="hidden" name="roomname" id="roomnameInput"
 			value=<%=roomname%>> <input type="hidden" name="username"
 			id="usernameInput" value=<%=username%>> <input type="hidden"
 			name="direct" id="directInput" value=<%=direct%>> <input
 			type="text" name="message" class="message" id="messageInput"
-			placeholder="Hello World"> <input type="submit" value="送信"
+			placeholder="Hello World"> <input type="submit" value="⇦Enter"
 			class="btn">
 	</footer>
 </body>

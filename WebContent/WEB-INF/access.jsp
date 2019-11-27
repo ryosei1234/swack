@@ -53,8 +53,10 @@
 					}
 				%>
 			</div>
+		    <!-- 入力フォーム -->
 		</div>
+		<!-- row -->
 	</div>
-
+	<!-- container -->
 </body>
 </html>
