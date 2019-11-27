@@ -15,19 +15,20 @@ import dao.LoginDAO;
 import dao.UserDAO;
 
 /**
- * Servlet implementation class LoginServlet
+ * ログインサーブレット<br>
+ * ユーザのログイン要求によって動作するクラス <br>
+ * doPost:ログインフォームから受け取った値を受け取りログイン処理を実行する
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mailad = request.getParameter("mailad");
 		String password = request.getParameter("password");
@@ -73,7 +74,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("mailad", mailad);
 			session.setAttribute("password", password);
 
-			//クッキー発行//////////////////////////////////////↓
+			//クッキー発行
 			System.out.println(check);
 			if (check.equals("true")) {
 				Cookie cooksessionid = new Cookie("sessionid", session.getId());
@@ -81,7 +82,6 @@ public class LoginServlet extends HttpServlet {
 				response.addCookie(cooksessionid);
 				logindao.sesRegist(session.getId(), mailad, password);
 			}
-			///////////////////////////////////////////////////↑
 			//初期画面表示
 			response.sendRedirect("ChatSarvlet");
 		} else {

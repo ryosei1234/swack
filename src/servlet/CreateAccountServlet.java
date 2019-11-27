@@ -13,15 +13,15 @@ import dao.UserDAO;
 import validation.CheckParameter;
 
 /**
- * Servlet implementation class CreateAccountServlet
+ * アカウント作成サーブレット<br>
+ * アカウントを作成するとき動作するサーブレット<br>
+ * doPost: ログインフォームから値を受け取りアカウントを作成する
  */
 @WebServlet("/CreateAccountServlet")
 public class CreateAccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String mailad = request.getParameter("mailad");

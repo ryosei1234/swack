@@ -13,15 +13,15 @@ import dao.DRoomDAO;
 import dao.UserDAO;
 
 /**
- * Servlet implementation class CreateDRoomServlet
+ * ダイレクトチャットルーム作成サーブレット<br>
+ * ダイレクトチャットルームを作成するサーブレット<br>
+ * doPost: 画面から値を受け取りダイレクトチャットルームを作成する
  */
 @WebServlet("/CreateDRoomServlet")
 public class CreateDRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username1 = request.getParameter("username1");
 		String username2 = request.getParameter("username2");

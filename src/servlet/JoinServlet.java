@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.RoomDAO;
 
 /**
- * Servlet implementation class JoinServlet
+ * ルーム参加サーブレット<br>
+ * ルーム参加するとき動作するサーブレット<br>
+ * doPost: 画面から参加するルームを受け取り参加する
  */
 @WebServlet("/JoinServlet")
 public class JoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String roomname = request.getParameter("roomname");

@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.RoomDAO;
 
 /**
- * Servlet implementation class ExitRoomServlet
+ * ルーム退室サーブレット<br>
+ * ルーム退室をする際動作するサーブレット<br>
+ * doPost: 画面から値を受けとったルームから退室する
  */
 @WebServlet("/ExitRoomServlet")
 public class ExitRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String roomname = request.getParameter("roomname");

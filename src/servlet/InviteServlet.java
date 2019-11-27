@@ -13,15 +13,15 @@ import dao.RoomDAO;
 import dao.UserDAO;
 
 /**
- * Servlet implementation class InviteServlet
+ * 招待サーブレット<br>
+ * ルーム招待するとき動作するサーブレット<br>
+ * doPost: 画面から値を受け取りユーザをルームに追加する
  */
 @WebServlet("/InviteServlet")
 public class InviteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roomname = request.getParameter("roomname");
 		String username = request.getParameter("username");

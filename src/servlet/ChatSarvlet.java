@@ -16,18 +16,16 @@ import dao.DChatlogDAO;
 import dao.DRoomDAO;
 import dao.RoomDAO;
 import dao.UserDAO;
-import security.SecurityUtil;
 
 /**
- * Servlet implementation class ChatSarvlet
+ * チャットサーブレット<br>
+ * チャット画面を表示するサーブレット<br>
+ * doGet: 受け取った情報を元にチャット情報を取得する
  */
 @WebServlet("/ChatSarvlet")
 public class ChatSarvlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -54,7 +52,6 @@ public class ChatSarvlet extends HttpServlet {
 			username = userDAO.conversion(mailad, password);
 		}
 
-		//TODO 初期部屋
 		if (roomname == null)
 			roomname = "everyone";
 
@@ -83,34 +80,5 @@ public class ChatSarvlet extends HttpServlet {
 
 		//JSP呼び出し
 		request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		//画面から取得
-		String str = request.getParameter("message");
-		String message = SecurityUtil.getESCEncodingString(str);
-		String roomname = request.getParameter("roomname");
-		String username = request.getParameter("username");
-		String direct = request.getParameter("direct");
-
-		System.out.println("postのほうのchatservletのdirectは" + direct);
-		HttpSession session = request.getSession();
-
-		if (!message.equals("")) {
-			if (direct.equals("false")) {
-				ChatlogDAO chatlogDAO = new ChatlogDAO();
-				chatlogDAO.saveChatlog(roomname, username, message);
-			} else {
-				//ここから
-				DChatlogDAO dchatlogDAO = new DChatlogDAO();
-				dchatlogDAO.saveDChatlog(roomname, username, message);
-				//ここまで
-			}
-		}
-
-		//GET処理にリダイレクトs
-		response.sendRedirect("ChatSarvlet?roomname=" + roomname + "&direct=" + direct);
 	}
 }

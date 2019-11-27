@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.RoomDAO;
 
 /**
- * Servlet implementation class CreateRoomServlet
+ * グループチャットルーム作成サーブレット<br>
+ * グループチャットルームを作成するサーブレット<br>
+ * doPost: 画面から値を受け取りグループチャットルームを作成する
  */
 @WebServlet("/CreateRoomServlet")
 public class CreateRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String roomname = request.getParameter("roomadd");
 		String username = request.getParameter("username");
