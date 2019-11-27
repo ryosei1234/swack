@@ -15,6 +15,16 @@ import dao.ChatlogDAO;
 import dao.DChatlogDAO;
 import security.SecurityUtil;
 
+/**
+ * WebsocketServer<br>
+ * リアルタイムチャットを実現するクラス<br>
+ *
+ * @param Info データ配列
+ * @param roomname ルーム名
+ * @param username ユーザー名
+ * @param messages メッセージ
+ * @param direct チャット識別
+ */
 @ServerEndpoint("/loadMessage")
 public class Websocket {
 	public static List<Session> sessions = new ArrayList<Session>();
@@ -30,12 +40,13 @@ public class Websocket {
 		System.out.println(message);
 		// クライアントからの受信時
 
-		String[] Info = message.split(" ", 0);
+		String[] Info = message.split(" ", 0);//文字列分割
 		String roomname = Info[0];
 		String username = Info[1];
 		String messages = SecurityUtil.getESCEncodingString(Info[2]);//クロスサイト対策
 		String direct = Info[3];
 
+		/* DB書き込み */
 		if (direct.equals("false")) {
 			ChatlogDAO chatlogDAO = new ChatlogDAO();
 			chatlogDAO.saveChatlog(roomname, username, messages);
