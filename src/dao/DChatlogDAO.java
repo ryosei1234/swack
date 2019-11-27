@@ -10,8 +10,18 @@ import java.util.ArrayList;
 
 import bean.ChatlogBean;
 
+/**
+ * ダイレクトチャットのチャットログデータにアクセスするクラス
+ */
+
 public class DChatlogDAO {
 
+	/**
+	 * 受け取ったダイレクトチャットのルーム名のチャットログを返却する
+	 *
+	 * @param roomname ルーム名
+	 * @return dchatloglist 受け取ったダイレクトチャットのルーム名のチャットログ
+	 */
 	/* DB対応版 */
 	public ArrayList<ChatlogBean> getDChatloglist(String roomname) {
 
@@ -35,6 +45,13 @@ public class DChatlogDAO {
 		return dchatloglist;
 	}
 
+	/**
+	 * ダイレクトチャットのチャットログに新たにメッセージを追加する
+	 *
+	 * @param roomname ルーム名
+	 * @param username ユーザ名
+	 * @param message メッセージ
+	 */
 	/* DB対応版 */
 	public void saveDChatlog(String roomname, String username, String message) {
 		String sql = "INSERT INTO dchatlog VALUES(chatseq.nextval,?,?,?,sysdate)";

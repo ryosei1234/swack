@@ -7,8 +7,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * 自動ログインデータにアクセスするクラス
+ */
 public class LoginDAO {
 
+	/**
+	 * セッションIDとメールアドレスとパスワードをDBに新規に登録する
+	 *
+	 * @param sessionid セッションID
+	 * @param mailad メールアドレス
+	 * @param password パスワード
+	 */
 	public void sesRegist(String sessionid, String mailad, String password) {
 
 		String sql = "INSERT INTO auth_login VALUES(?,?,?)";
@@ -29,6 +39,12 @@ public class LoginDAO {
 
 	}
 
+	/**
+	 * 受け取ったセッションIDが存在するメールアドレスとパスワードを返却する
+	 *
+	 * @param sessionid セッションID
+	 * @return value メールアドレスとパスワードを持ったクラスのインスタンス変数
+	 */
 	public Calculation sesSerch(String sessionid) {
 
 		String sql = "SELECT mailad , password FROM auth_login WHERE sessionid = ?";

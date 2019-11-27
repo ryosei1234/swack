@@ -10,8 +10,17 @@ import java.util.ArrayList;
 
 import bean.ChatlogBean;
 
+/**
+ * ルームのチャットログデータにアクセスするクラス
+ */
 public class ChatlogDAO {
 
+	/**
+	 * 受け取ったルーム名のルームのチャットログを送信日時の昇順にして返却する
+	 *
+	 * @param roomname ルーム名
+	 * @return chatloglist 受け取ったルーム名のルームのチャットログ
+	 */
 	/* DB対応版 */
 	public ArrayList<ChatlogBean> getChatloglist(String roomname) {
 
@@ -35,6 +44,13 @@ public class ChatlogDAO {
 		return chatloglist;
 	}
 
+	/**
+	 * チャットログに新たにメッセージを追加するメソッド
+	 *
+	 * @param roomname ルーム名
+	 * @param username ユーザ名
+	 * @param message メッセージ
+	 */
 	/* DB対応版 */
 	public void saveChatlog(String roomname, String username, String message) {
 		String sql = "INSERT INTO chatlog VALUES(chatseq.nextval,?,?,?,sysdate)";
