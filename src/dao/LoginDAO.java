@@ -51,7 +51,7 @@ public class LoginDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, sessionid);
 				ResultSet rs = pst.executeQuery();

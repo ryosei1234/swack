@@ -22,14 +22,14 @@ public class DChatlogDAO {
 	 * @param roomname ルーム名
 	 * @return dchatloglist 受け取ったダイレクトチャットのルーム名のチャットログ
 	 */
-	/* DB対応版 */
+
 	public ArrayList<ChatlogBean> getDChatloglist(String roomname) {
 
 		ArrayList<ChatlogBean> dchatloglist = new ArrayList<ChatlogBean>();
 		String sql = "SELECT * FROM dchatlog WHERE  roomname=? ORDER BY mdate";
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, roomname);
 				ResultSet rs = pst.executeQuery();
@@ -52,13 +52,13 @@ public class DChatlogDAO {
 	 * @param username ユーザ名
 	 * @param message メッセージ
 	 */
-	/* DB対応版 */
+
 	public void saveDChatlog(String roomname, String username, String message) {
 		String sql = "INSERT INTO dchatlog VALUES(chatseq.nextval,?,?,?,sysdate)";
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, roomname);
 				pst.setString(2, username);

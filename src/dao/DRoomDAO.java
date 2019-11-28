@@ -25,7 +25,7 @@ public class DRoomDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, username);
 				ResultSet rs = pst.executeQuery();
@@ -52,7 +52,7 @@ public class DRoomDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, roomname);
 				pst.setString(2, username1);
@@ -76,18 +76,18 @@ public class DRoomDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, roomname);
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
-					return false; // DBに登録されていたらfalse
+					return false;
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return true; // DBに登録されていなかったらtrue
+		return true;
 
 	}
 

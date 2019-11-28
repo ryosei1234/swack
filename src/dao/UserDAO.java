@@ -33,8 +33,6 @@ public class UserDAO {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
-				//pst.setString(1, mailad);
-				//pst.setString(2, password);
 				ResultSet rs = pst.executeQuery();
 
 				if (rs.next()) {
@@ -66,7 +64,6 @@ public class UserDAO {
 			Class.forName(DRIVER_NAME);
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
-				//pst.setString(1, mailad);
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
 					String username = rs.getString("username");
@@ -92,18 +89,18 @@ public class UserDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, username);
 				ResultSet rs = pst.executeQuery();
 				if (rs.next()) {
-					return false; // DBに登録されていたらfalse
+					return false;
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return true; // DBに登録されてなかったらtrue
+		return true;
 
 	}
 
@@ -120,7 +117,7 @@ public class UserDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, username);
 				pst.setString(2, roomname);
@@ -148,7 +145,7 @@ public class UserDAO {
 
 		try {
 			Class.forName(DRIVER_NAME);
-			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD); //parameterDAO
+			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, username1);
 				pst.setString(2, username1);
@@ -183,13 +180,7 @@ public class UserDAO {
 			try (Connection conn = DriverManager.getConnection(CONNECT_STRING, USERID, PASSWARD);
 					PreparedStatement pst = conn.prepareStatement(sql);) {
 				pst.setString(1, username);
-				//pst.setString(2, password);
-				//pst.setString(3, mailad);
 				int cnt = pst.executeUpdate();
-
-				//Statement statement=conn.createStatement();
-				//sql="INSERT INTO room VALUES('everyone' , username)";
-				//statement.executeUpdate(sql);
 
 				return true;
 			}
